@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="font-f">
+      <span>
+        <ion-icon slot="icon-only" name="chevron-back-outline" (click)="back('back');"></ion-icon>
+        &nbsp;Add Diary
+      </span>
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding font-f" (click)="Emoji()">
+
+  <form [formGroup]="diaryForm" (ngSubmit)="CreateRecord()">
+
+    <ion-item class="border">
+      <ion-label class="font-f">Date :</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" min="1990-01-01" max="{{this.year}}" value={{this.datenow}} formControlName="Date">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item class="border">
+      <ion-label class="font-f">Feeling :</ion-label>
+      <img src="{{this.emoji}}" class="Emoji">
+      <ion-select (click)="OpenEmoji()" [(ngModel)]="defouleLang" formControlName="Feeling">
+        <ion-select-option *ngFor="let lang of emojis" value="{{lang}}" class="font-f">{{lang}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="border ">
+      <ion-label class="font-f" position="floating">Title : </ion-label>
+      <ion-input class="font-f" formControlName="Title"></ion-input>
+    </ion-item>
+
+    <ion-item class="border">
+      <ion-label class="font-f" position="floating">Detail : </ion-label>
+      <ion-textarea class="font-f" rows="18" cols="20" formControlName="Detail"></ion-textarea>
+    </ion-item>
+
+
+    <ion-button (click)="CreateRecord()" [disabled]="diaryForm.invalid" class="font-f button-s">
+      <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+      &nbsp;Add Diary
+    </ion-button>
+
+
+  </form>
+
+</ion-content>

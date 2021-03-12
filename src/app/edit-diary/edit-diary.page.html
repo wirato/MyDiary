@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="font-f">
+      <span>
+        <ion-icon size="small" slot="icon-only" name="chevron-back-outline" (click)="back('back');"></ion-icon>
+        &nbsp;Edit Diary
+      </span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" >
+
+  <ion-card-content class="font-f">
+
+    <ion-item class="border">
+      <ion-label class="font-f">Date : </ion-label>
+      <ion-datetime class="font-f" displayFormat="MMM DD, YYYY" min="1990" max="2077" value={{this.Date}} [(ngModel)]="Date"></ion-datetime>
+    </ion-item>
+
+    <ion-item class="border">
+      <ion-label class="font-f">Feeling :</ion-label>
+      <img src="{{this.feel[Feeling]}}" class="Emoji">
+      <ion-select (click)="OpenEmoji()" [(ngModel)]="Feeling" >
+        <ion-select-option *ngFor="let lang of emojis" value="{{lang}}" class="font-f">{{lang}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="border">
+      <ion-label class="font-f" position="floating">Title : </ion-label>
+      <ion-input class="font-f" type="text" [(ngModel)]="this.Title"></ion-input>
+    </ion-item>
+
+    <ion-item class="border">
+      <ion-label class="font-f" position="floating">Detail : </ion-label>
+      <ion-textarea class="font-f" rows="20" cols="20" type="text" [(ngModel)]="this.Detail"></ion-textarea>
+    </ion-item>
+
+      <ion-button (click)="presentAlertConfirm()" class="font-f button-s">
+        <ion-icon size="small" slot="icon-only" name="cloud-upload-outline"></ion-icon>
+        &nbsp;Update
+      </ion-button>
+
+
+  </ion-card-content>
+
+
+</ion-content>
