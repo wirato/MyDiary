@@ -30,6 +30,8 @@ export class EditDiaryPage implements OnInit {
     angry: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/271/pouting-face_1f621.png',
     crying: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/271/loudly-crying-face_1f62d.png',
   };
+  datenow: any = new Date().toISOString();
+  year:string;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -43,6 +45,7 @@ export class EditDiaryPage implements OnInit {
   }
 
   ngOnInit() {
+    this.year = this.datenow.substring(0,10);
     this.firebaseService.read_diaries().subscribe(data => {
 
       this.diaryList = data.map(e => {

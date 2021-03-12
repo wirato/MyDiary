@@ -19,11 +19,13 @@
       </div>
     </ion-col>
   </ion-row>
+
   <ion-row>
     <div class="textdata">
       <ion-card-subtitle class="font-f fonttext">{{this.textdata}}</ion-card-subtitle>
     </div>
   </ion-row>
+
   <ion-card *ngFor="let item of diaryList" class="card-bg font-f">
     <div>
       <ion-row color="Light" >
@@ -32,7 +34,6 @@
             <ion-label>
               <b>{{item.Date | date: "MMM dd, yyyy"}}</b>
             </ion-label>
-
           </div>
         </ion-col>
 
@@ -73,5 +74,4 @@
     <span>
       <ion-icon name="add" class="icon"></ion-icon>
     </span>
-
   </ion-button>

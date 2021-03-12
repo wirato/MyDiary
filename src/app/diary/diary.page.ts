@@ -56,7 +56,7 @@ export class DiaryPage implements OnInit {
       this.Title = this.getdetail.Title;
       this.Detail = this.getdetail.Detail;
       this.Feeling = this.getdetail.Feeling;
-      console.log(this.Feeling);
+      // console.log(this.Feeling);
     });
   }
 

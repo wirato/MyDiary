@@ -4,6 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+
 @Component({
   selector: 'app-diary-list',
   templateUrl: './diary-list.page.html',

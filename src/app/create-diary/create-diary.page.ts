@@ -62,7 +62,7 @@ export class CreateDiaryPage implements OnInit {
     // console.log(this.diaryForm.value);
     this.firebaseService.create_diary(this.diaryForm.value).then(resp => {
       // this.diaryForm.reset();
-      console.log(this.diaryForm.value);
+      // console.log(this.diaryForm.value);
       this.back();
     })
       .catch(error => {
